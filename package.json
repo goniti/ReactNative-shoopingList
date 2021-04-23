@@ -22,8 +22,7 @@
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.66.0",
     "prop-types": "^15.7.2",
-    "react-test-renderer": "17.0.1",
-    "uuidv4": "^6.2.7"
+    "react-test-renderer": "17.0.1"
   },
   "jest": {
     "preset": "react-native"
