@@ -1,21 +1,22 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
 import PropTypes from "prop-types";
+import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
 import Icon from 'react-native-vector-icons/dist/Octicons'
 
-const ListItem = ({item}) => {
-    return (
+const ListItem = ({item, deleteItem}) => (
       <TouchableOpacity style={styles.listItem}>
         <View style={styles.listItemView}>
           <Text style={styles.listItemText}>{item.text}</Text>
-          <Icon name="x" size={24} color="firebrick" />
+          <Icon name="x" size={24} color="firebrick" onPress={()=> deleteItem(item.id)}/>
         </View>
       </TouchableOpacity>
-    );
-};
+);
 
 ListItem.propTypes = {
-  item: PropTypes.string
+  item: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired
+  })
 }
 
 const styles = StyleSheet.create({
