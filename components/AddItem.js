@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState } from "react";
 import PropTypes from 'prop-types';
 import {View, Text,TouchableOpacity,TextInput, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/dist/Octicons'
 
-const AddItem = () => (
+const AddItem = ({addItem}) => {
+  const [text , setText] = useState('');
+  const onChange = textValue => setText(textValue);
+
+  return (
   <View>
-    <TextInput placeholder={"What will you buy ?"} style={styles.textInput}/>
-    <TouchableOpacity style={styles.button}>
+    <TextInput
+      placeholder={"What will you buy ?"}
+      style={styles.textInput}
+      onChangeText={onChange}
+    />
+    <TouchableOpacity style={styles.button} onPress={() => addItem(text)}>
       <Text style={styles.buttonText}>
         <Icon name={"plus"} size={20}/>
         {" "}Add to list
@@ -14,10 +22,10 @@ const AddItem = () => (
     </TouchableOpacity>
 
   </View>
-);
+  )};
 
 AddItem.propTypes = {
-
+  addItem: PropTypes.func.isRequired,
 };
 
 const styles = StyleSheet.create({

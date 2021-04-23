@@ -6,19 +6,17 @@ import ListItem from './components/ListItem';
 import AddItem from './components/AddItem';
 
 const App = () => {
-  const [items, setItems] = useState([
-    {id: uuid(), text: 'item1'},
-    {id: uuid(), text: 'item2'},
-    {id: uuid(), text: 'item3'},
-  ])
+  const [items, setItems] = useState([])
   const deleteItem = id => {
     setItems( prevItems => prevItems.filter(item => item.id !== id) )
   }
-
+  const addItem = text => {
+    setItems( prevItems => [{id: uuid(), text},...prevItems] )
+  }
   return (
     <View style={styles.container}>
       <Header title={'Shopping List'} />
-      <AddItem/>
+      <AddItem addItem={addItem}/>
       <FlatList data={items} renderItem={({item}) => <ListItem item={item} deleteItem={deleteItem}/>} />
     </View>
   );

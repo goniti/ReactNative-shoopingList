@@ -16,7 +16,8 @@ ListItem.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired
-  })
+  }),
+  deleteItem: PropTypes.func.isRequired
 }
 
 const styles = StyleSheet.create({
