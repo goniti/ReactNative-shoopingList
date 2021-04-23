@@ -1,32 +1,18 @@
-import React from 'react';
-import {View, Text, Image, StyleSheet} from 'react-native';
-
+import React, {useState} from 'react';
+import {View, StyleSheet} from 'react-native';
+import Header from './components/Header';
 const App = () => {
-  const imageUnsplash = 'https://source.unsplash.com/480x320/?face,portrait';
-
   return (
     <View style={styles.container}>
-      <Text style={styles.largeText}>Hello React Natives</Text>
-      <Image style={styles.image} source={{uri: imageUnsplash}} />
+      <Header title={'Shopping List'} />
     </View>
   );
 };
 
-export default App;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  largeText: {
-    color: 'darkslateblue',
-    fontSize: 30,
-  },
-  image: {
-    width: 100,
-    height: 100,
-    borderRadius: 100 / 2,
   },
 });
+
+export default App;
